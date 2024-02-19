@@ -1,0 +1,11 @@
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Server.exe.config
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Server.exe
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Server.pdb
+G:\Unity\SF\52 Клиент-сервер\Server\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+G:\Unity\SF\52 Клиент-сервер\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+G:\Unity\SF\52 Клиент-сервер\Server\Server\obj\Debug\Server.exe
+G:\Unity\SF\52 Клиент-сервер\Server\Server\obj\Debug\Server.pdb
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Newtonsoft.Json.dll
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Newtonsoft.Json.pdb
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Newtonsoft.Json.xml
+G:\Unity\SF\52 Клиент-сервер\Server\Server\obj\Debug\Server.csproj.CopyComplete
