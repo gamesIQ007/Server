@@ -47,9 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlayerStats.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\PlayerInfo.cs" />
+    <Compile Include="Game\PlayerList.cs" />
+    <Compile Include="Game\PlayerStats.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\RequestListener.cs" />
+    <Compile Include="Server\ResponseCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

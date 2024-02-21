@@ -17,5 +17,19 @@ namespace Server
             Gold = gold;
             Level = level;
         }
+
+        public void Update()
+        {
+            Gold += Level;
+        }
+
+        public void NextLevel()
+        {
+            if (Gold >= 10)
+            {
+                Gold -= 10;
+                Level++;
+            }
+        }
     }
 }
