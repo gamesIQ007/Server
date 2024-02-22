@@ -9,3 +9,5 @@ G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Newtonsoft.Json
 G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Newtonsoft.Json.pdb
 G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\Newtonsoft.Json.xml
 G:\Unity\SF\52 Клиент-сервер\Server\Server\obj\Debug\Server.csproj.CopyComplete
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\database.db
+G:\Unity\SF\52 Клиент-сервер\Server\Server\bin\Debug\System.Data.SQLite.dll

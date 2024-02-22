@@ -16,5 +16,11 @@ namespace Server
             this.info = info;
             stats = new PlayerStats(10, 1);
         }
+
+        public Player(PlayerInfo info, PlayerStats stats)
+        {
+            this.info = info;
+            this.stats = stats;
+        }
     }
 }

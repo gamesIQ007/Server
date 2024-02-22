@@ -1,10 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Net;
-using System.Text;
+﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Server
 {
@@ -12,17 +7,29 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            // Игровая логика
-            PlayerList playerList = new PlayerList();
-            playerList.AddNewPlayer(new PlayerInfo("Player", "5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8"));
+            // Подключение к базе данных
+            DBConnection dbConnection = new DBConnection();
+            DBPlayerRequestCollection dbPlayerRequestCollection = new DBPlayerRequestCollection(dbConnection);
+            dbConnection.Open();
 
-            Game game = new Game(playerList);
+            // Получение игроков
+            PlayerList playerList = new PlayerList();
+            playerList.AddPlayers(dbPlayerRequestCollection.GetAllPlayers());
+            Console.WriteLine($"Игроки загружены из базы данных");
 
             // Обработка запросов
             ResponseCollection responseCollection = new ResponseCollection(playerList);
             RequestListener requestListener = new RequestListener(playerList, responseCollection, "http://192.168.31.177:88/playerStats/");
             Thread requestThread = new Thread(requestListener.StartRequestListen);
             requestThread.Start();
+
+            // Синхронизация с базой данных
+            DBPlayerSynchronizer dbPlayerSynchronizer = new DBPlayerSynchronizer(dbPlayerRequestCollection, playerList, 5000);
+            Thread dbSynchronizeThread = new Thread(dbPlayerSynchronizer.StartSynchronize);
+            dbSynchronizeThread.Start();
+
+            // Игровая логика
+            Game game = new Game(playerList);
 
             while (true)
             {
