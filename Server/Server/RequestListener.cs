@@ -11,11 +11,13 @@ namespace Server
         private PlayerList playerList;
         private HttpListener listener;
         private ResponseCollection responseCollection;
+        private DBPlayerRequestCollection dbPlayerRequestCollection;
 
-        public RequestListener(PlayerList playerList, ResponseCollection responseCollection, string prefix)
+        public RequestListener(PlayerList playerList, ResponseCollection responseCollection, string prefix, DBPlayerRequestCollection dbPlayerRequestCollection)
         {
             this.playerList = playerList;
             this.responseCollection = responseCollection;
+            this.dbPlayerRequestCollection = dbPlayerRequestCollection;
             
             listener = new HttpListener();
             listener.Prefixes.Add(prefix);
@@ -34,10 +36,15 @@ namespace Server
                 HttpListenerBasicIdentity identity = (HttpListenerBasicIdentity)context.User.Identity;
 
                 PlayerInfo playerInfo = new PlayerInfo(identity.Name, identity.Password);
-
+                Console.WriteLine(context.Request.RawUrl);
                 if (playerList.ExistPlayer(playerInfo) == false)
                 {
                     Console.WriteLine($"Пользователя {identity.Name} нет в базе данных");
+
+                    playerList.AddNewPlayer(playerInfo);
+
+                    dbPlayerRequestCollection.AddNewPlayer(playerInfo);
+
                     continue;
                 }
 

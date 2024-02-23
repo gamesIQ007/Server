@@ -13,6 +13,19 @@ namespace Server
             this.connection = connection;
         }
 
+        public void AddNewPlayer(PlayerInfo info)
+        {
+            string commandText = $"INSERT INTO player_info (name, password_hash) VALUES (\"{info.Name}\", \"{info.PasswordHash}\")";
+
+            connection.ExecuteCommand(commandText);
+
+            int playerID = GetPlayerID(info);
+
+            string commandText2 = $"INSERT INTO player_stats (player_id, gold, level) VALUES ({playerID}, 10, 1)";
+
+            connection.ExecuteCommand(commandText2);
+        }
+
         public void SetPlayerStats(Player player)
         {
             int playerID = GetPlayerID(player.info);

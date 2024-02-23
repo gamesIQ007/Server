@@ -19,7 +19,7 @@ namespace Server
 
             // Обработка запросов
             ResponseCollection responseCollection = new ResponseCollection(playerList);
-            RequestListener requestListener = new RequestListener(playerList, responseCollection, "http://192.168.31.177:88/playerStats/");
+            RequestListener requestListener = new RequestListener(playerList, responseCollection, "http://192.168.31.177:88/playerStats/", dbPlayerRequestCollection);
             Thread requestThread = new Thread(requestListener.StartRequestListen);
             requestThread.Start();
 
