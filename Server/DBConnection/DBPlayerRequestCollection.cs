@@ -21,9 +21,9 @@ namespace Server
 
             int playerID = GetPlayerID(info);
 
-            string commandText2 = $"INSERT INTO player_stats (player_id, gold, level) VALUES ({playerID}, 10, 1)";
+            commandText = $"INSERT INTO player_stats (player_id, gold, level) VALUES ({playerID}, 10, 1)";
 
-            connection.ExecuteCommand(commandText2);
+            connection.ExecuteCommand(commandText);
         }
 
         public void SetPlayerStats(Player player)

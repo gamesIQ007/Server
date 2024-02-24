@@ -22,6 +22,7 @@ namespace Server
         public string GetResponseForPOST(string resourse, string content, PlayerInfo info)
         {
             if (resourse == "/playerStats" && content == "UpgradeLevel") return UpgradeLevel(info);
+            if (resourse == "/playerStats" && content == "AddGold") return AddGold(info);
 
             return "";
         }
@@ -36,6 +37,14 @@ namespace Server
         {
             PlayerStats stats = playerList.GetPlayerStats(info);
             stats.NextLevel();
+            return JsonConvert.SerializeObject(stats);
+        }
+
+        private string AddGold(PlayerInfo info)
+        {
+            PlayerStats stats = playerList.GetPlayerStats(info);
+            stats.AddGold();
+            Console.WriteLine($"Золото добавлено игроку {info.Name}");
             return JsonConvert.SerializeObject(stats);
         }
     }
